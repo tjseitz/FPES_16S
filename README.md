@@ -69,3 +69,22 @@ qiime feature-table filter-features \
 > --p-min-frequency 5 \
 > --o-filtered-table freq-filt-table.qza 
 ```
+
+
+# Predicting function through PiCRUSt2
+
+Here we are going to use the QIIME2 plugin, q2-picrust2. 
+
+After installation of both PiCRUSt2 and q2-picrust2 run the following command:
+
+```
+qiime picrust2 full-pipeline \
+   --i-table freq-filt-table.qza \
+   --i-seq rep-seqs.qza \
+   --output-dir q2-picrust2_output \
+   --p-threads 3 \
+   --p-hsp-method mp \
+   --p-max-nsti 2 \
+   --verbose \
+   --p-highly-verbose
+```
