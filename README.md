@@ -88,3 +88,23 @@ qiime picrust2 full-pipeline \
    --verbose \
    --p-highly-verbose
 ```
+
+Generate a table that shows the abundance of each identified pathway:
+
+```
+qiime feature-table summarize \
+   --i-table q2-picrust2_output/pathway_abundance.qza \
+   --o-visualization q2-picrust2_output/pathway_abundance.qzv
+```
+
+Calculate some core metrics, choose the rarefication/sampling depth value based on the minimum frequency (minimum sample pathway abundance), in this case it is 2445459.
+
+
+```
+qiime diversity core-metrics \
+   --i-table q2-picrust2_output/pathway_abundance.qza \
+   --p-sampling-depth 2445459 \
+   --m-metadata-file FPES-metadata.tsv \
+   --output-dir pathabun_core_metrics_out \
+   --p-n-jobs 1
+```
