@@ -33,9 +33,11 @@ Make new directory for your biom files
 
 Export feature table as a biom file to new directory
 
-``qiime tools export --input-path phylum-rel-freq.qza --output-path phylum-biom```
+```qiime tools export --input-path phylum-rel-freq.qza --output-path phylum-biom```
 
 
 Convert biom to a tsv file
-biom convert -i feature-table.biom -o ko_metagenome_16s.tsv --to-tsv
+```biom convert -i feature-table.biom -o phylum_16s.tsv --to-tsv```
+
+`grep -E "(f__)|(^ID)” family_16s.tsv | grep -v "g__" | sed 's/^.*f__//g' > family_16s_clean.txt
 
