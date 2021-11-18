@@ -8,7 +8,8 @@ In this example I will be using a taxa collapsed at the phylum level.
 
 ### Collapse frequency table
 
-```qiime taxa collapse \
+```
+qiime taxa collapse \
 --i-table table-13000-fpes-nomito.qza \
 --i-taxonomy taxonomy.qza \
 --p-level 2 \
@@ -18,7 +19,8 @@ In this example I will be using a taxa collapsed at the phylum level.
 ### Next we want to convert that frequency table to a *Relative Frequency Table*
 
 
-```qiime feature-table relative-frequency \
+```
+qiime feature-table relative-frequency \
 --i-table phylum-table.qza \
 --o-relative-frequency-table DIRECTORY/phylum-rel-freq.qza 
 ```
